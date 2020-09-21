@@ -8,6 +8,7 @@ namespace HelloWorld
     {
         private int _health;
         private int _baseDamage;
+        private int _potionDamage;
         public Items _currency;
         private Items[] _inventory;
         private Items _currentWeapon;
@@ -66,11 +67,20 @@ namespace HelloWorld
 
         public void EquipItem(int itemIndex)
         {
-            if (Contains(itemIndex) == true);
+            if (Contains(itemIndex) == true)
             {
                 _currentWeapon = _inventory[itemIndex];
             }
         }
+
+        public void UseItem(int itemIndex)
+        {
+            if (Contains(itemIndex) ==true)
+            {
+                //_potionDamage = _inventory[itemIndex];
+            }
+        }
+            
 
         public void UnequipItem()
         {
