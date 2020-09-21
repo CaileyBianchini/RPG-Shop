@@ -80,6 +80,8 @@ namespace HelloWorld
                 //_potionDamage = _inventory[itemIndex];
             }
         }
+        
+        //Shop Inventory
             
 
         public void UnequipItem()

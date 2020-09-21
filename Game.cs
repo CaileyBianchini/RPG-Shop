@@ -25,7 +25,7 @@ namespace HelloWorld
         public void PlayersStats()
         {
             _player.PrintStats();
-            Console.WriteLine(_money + " gold");
+            Console.WriteLine(_money.itemPrice + " gold");
         }
 
         // INPUTS
@@ -199,9 +199,8 @@ namespace HelloWorld
         {
             while (_gameOver = true)
             {
-                Console.WriteLine("Welcom to my shop, Player!");
+                Console.WriteLine("Welcome to my shop, Player!");
                 Shop();
-
                 Battle();
             }
 
@@ -209,9 +208,13 @@ namespace HelloWorld
 
         public void Shop()
         {
-            BuyWeapon();
-            BuyPotions();
+            for (int i = 0; i < 1; i++)
+            {
+                BuyWeapon();
+                BuyPotions();
+            }
             Continue();
+            return;
         }
 
 
@@ -231,38 +234,38 @@ namespace HelloWorld
                     Console.WriteLine("You purchased Long Sword!");
                 }
                 //Dagger
-                if (input == '2' && _money.itemPrice >= _dagger.itemPrice)
+                else if (input == '2' && _money.itemPrice >= _dagger.itemPrice)
                 {
                     _player.AddItemToInventory(_dagger, 0);
-                    _money.itemPrice -= _longSword.itemPrice;
+                    _money.itemPrice -= _dagger.itemPrice;
                     Console.WriteLine("You purchased Dagger!");
                 }
                 //Ax
-                if (input == '3' && _money.itemPrice >= _ax.itemPrice)
+                else if (input == '3' && _money.itemPrice >= _ax.itemPrice)
                 {
                     _player.AddItemToInventory(_ax, 0);
-                    _money.itemPrice -= _longSword.itemPrice;
+                    _money.itemPrice -= _ax.itemPrice;
                     Console.WriteLine("You purchased Ax!");
                 }
                 //Staff
-                if (input == '4' && _money.itemPrice >= _staff.itemPrice)
+                else if (input == '4' && _money.itemPrice >= _staff.itemPrice)
                 {
                     _player.AddItemToInventory(_staff, 0);
-                    _money.itemPrice -= _longSword.itemPrice;
+                    _money.itemPrice -= _staff.itemPrice;
                     Console.WriteLine("You purchased Staff!");
                 }
                 //Mace
-                if (input == '5' && _money.itemPrice >= _mace.itemPrice)
+                else if (input == '5' && _money.itemPrice >= _mace.itemPrice)
                 {
                     _player.AddItemToInventory(_mace, 0);
-                    _money.itemPrice -= _longSword.itemPrice;
+                    _money.itemPrice -= _mace.itemPrice;
                     Console.WriteLine("You purchased Mace!");
                 }
                 //hammer
-                if (input == '6' && _money.itemPrice >= _BowAndArrow.itemPrice)
+                else if (input == '6' && _money.itemPrice >= _BowAndArrow.itemPrice)
                 {
                     _player.AddItemToInventory(_BowAndArrow, 0);
-                    _money.itemPrice -= _longSword.itemPrice;
+                    _money.itemPrice -= _BowAndArrow.itemPrice;
                     Console.WriteLine("You purchased a Bow and Arrow!");
                 }
                 else
@@ -287,46 +290,46 @@ namespace HelloWorld
                         Console.WriteLine("You purchased Long Sword!");
                     }
                     //Dagger
-                    if (input == '2' && _money.itemPrice >= _dagger.itemPrice)
+                    else if (input == '2' && _money.itemPrice >= _dagger.itemPrice)
                     {
                         _player.AddItemToInventory(_dagger, 1);
-                        _money.itemPrice -= _longSword.itemPrice;
+                        _money.itemPrice -= _dagger.itemPrice;
                         Console.WriteLine("You purchased Dagger!");
                     }
                     //Ax
-                    if (input == '3' && _money.itemPrice >= _ax.itemPrice)
+                    else if (input == '3' && _money.itemPrice >= _ax.itemPrice)
                     {
                         _player.AddItemToInventory(_ax, 1);
-                        _money.itemPrice -= _longSword.itemPrice;
+                        _money.itemPrice -= _ax.itemPrice;
                         Console.WriteLine("You purchased Ax!");
                     }
                     //Staff
-                    if (input == '4' && _money.itemPrice >= _staff.itemPrice)
+                    else if (input == '4' && _money.itemPrice >= _staff.itemPrice)
                     {
                         _player.AddItemToInventory(_staff, 1);
-                        _money.itemPrice -= _longSword.itemPrice;
+                        _money.itemPrice -= _staff.itemPrice;
                         Console.WriteLine("You purchased Staff!");
                     }
                     //Mace
-                    if (input == '5' && _money.itemPrice >= _mace.itemPrice)
+                    else if (input == '5' && _money.itemPrice >= _mace.itemPrice)
                     {
                         _player.AddItemToInventory(_mace, 1);
-                        _money.itemPrice -= _longSword.itemPrice;
+                        _money.itemPrice -= _mace.itemPrice;
                         Console.WriteLine("You purchased Mace!");
                     }
                     //hammer
                     if (input == '6' && _money.itemPrice >= _BowAndArrow.itemPrice)
                     {
                         _player.AddItemToInventory(_BowAndArrow, 1);
-                        _money.itemPrice -= _longSword.itemPrice;
-                        Console.WriteLine("You purchased Hammer!");
+                        _money.itemPrice -= _BowAndArrow.itemPrice;
+                        Console.WriteLine("You purchased a Bow and Arrow!");
                     }
                     else
                     {
                         Console.WriteLine("Woops seems like you can't get the item you wanted!");
                     }
                 }
-                if (input == '2')
+                else
                 {
                     Console.WriteLine("Thank you for comming to my shop!");
                     return;
@@ -356,19 +359,19 @@ namespace HelloWorld
                     _money.itemPrice -= 1;
                     Console.WriteLine("You purchased a Fire Potion!");
                 }
-                if (input == '2' && _money.itemPrice >= 2)
+                else if (input == '2' && _money.itemPrice >= 2)
                 {
                     _player.AddItemToInventory(_poisonPotion, 3);
                     _money.itemPrice -= 2;
                     Console.WriteLine("You purchased a Poison Potion!");
                 }
-                if (input == '3' && _money.itemPrice >= 2)
+                else if (input == '3' && _money.itemPrice >= 2)
                 {
                     _player.AddItemToInventory(_fearPotion, 3);
                     _money.itemPrice -= 2;
                     Console.WriteLine("You purchased a Fear Potion!");
                 }
-                if (input == '4' && _money.itemPrice >= 5)
+                else if (input == '4' && _money.itemPrice >= 5)
                 {
                     _player.AddItemToInventory(_fartPotion, 3);
                     _money.itemPrice -= 5;
@@ -385,7 +388,6 @@ namespace HelloWorld
                 if (input == '1')
                 {
                     PlayersStats();
-                    GetInput(out input, "Long Sword: " + _longSword.itemPrice + " Gold", "Dagger: " + _dagger.itemPrice + " Gold", "Ax: " + _ax.itemPrice + " Gold", "Staff: " + _staff.itemPrice + " Gold", "Mace: " + _mace.itemPrice + " Gold", "Hammer: " + _BowAndArrow.itemPrice + " Gold", "Which weapon do you want?");
                     GetInput(out input, "Fire Potion: 1 Gold", "Poison Potion: 2 Gold", "Fear Potion: 2 Gold", "Fart Potion: 5 Gold", "Which potion do you wish to buy?");
                     if (input == '1' && _money.itemPrice >= 1)
                     {
@@ -393,19 +395,19 @@ namespace HelloWorld
                         _money.itemPrice -= 1;
                         Console.WriteLine("You purchased a Fire Potion!");
                     }
-                    if (input == '2' && _money.itemPrice >= 2)
+                    else if (input == '2' && _money.itemPrice >= 2)
                     {
                         _player.AddItemToInventory(_poisonPotion, 4);
                         _money.itemPrice -= 2;
                         Console.WriteLine("You purchased a Poison Potion!");
                     }
-                    if (input == '3' && _money.itemPrice >= 2)
+                    else if (input == '3' && _money.itemPrice >= 2)
                     {
                         _player.AddItemToInventory(_fearPotion, 4);
                         _money.itemPrice -= 2;
                         Console.WriteLine("You purchased a Fear Potion!");
                     }
-                    if (input == '4' && _money.itemPrice >= 5)
+                    else if (input == '4' && _money.itemPrice >= 5)
                     {
                         _player.AddItemToInventory(_fartPotion, 4);
                         _money.itemPrice -= 5;
@@ -414,6 +416,8 @@ namespace HelloWorld
                     else
                     {
                         Console.WriteLine("Woops seems like you can't get the item you wanted!");
+                        Continue();
+                        return;
                     }
                     Continue();
                     PlayersStats();
@@ -421,7 +425,6 @@ namespace HelloWorld
 
                     if (input == '1')
                     {
-                        GetInput(out input, "Long Sword: " + _longSword.itemPrice + " Gold", "Dagger: " + _dagger.itemPrice + " Gold", "Ax: " + _ax.itemPrice + " Gold", "Staff: " + _staff.itemPrice + " Gold", "Mace: " + _mace.itemPrice + " Gold", "Hammer: " + _BowAndArrow.itemPrice + " Gold", "Which weapon do you want?");
                         GetInput(out input, "Fire Potion: 1 Gold", "Poison Potion: 2 Gold", "Fear Potion: 2 Gold", "Fart Potion: 5 Gold", "Which potion do you wish to buy?");
                         if (input == '1' && _money.itemPrice >= 1)
                         {
@@ -429,19 +432,19 @@ namespace HelloWorld
                             _money.itemPrice -= 1;
                             Console.WriteLine("You purchased a Fire Potion!");
                         }
-                        if (input == '2' && _money.itemPrice >= 2)
+                        else if (input == '2' && _money.itemPrice >= 2)
                         {
                             _player.AddItemToInventory(_poisonPotion, 5);
                             _money.itemPrice -= 2;
                             Console.WriteLine("You purchased a Poison Potion!");
                         }
-                        if (input == '3' && _money.itemPrice >= 2)
+                        else if (input == '3' && _money.itemPrice >= 2)
                         {
                             _player.AddItemToInventory(_fearPotion, 5);
                             _money.itemPrice -= 2;
                             Console.WriteLine("You purchased a Fear Potion!");
                         }
-                        if (input == '4' && _money.itemPrice >= 5)
+                        else if (input == '4' && _money.itemPrice >= 5)
                         {
                             _player.AddItemToInventory(_fartPotion, 5);
                             _money.itemPrice -= 5;
@@ -450,18 +453,21 @@ namespace HelloWorld
                         else
                         {
                             Console.WriteLine("Woops seems like you can't get the item you wanted!");
+                            Continue();
                             return;
                         }
                     }
-                    if (input == '2')
+                    else
                     {
                         Console.WriteLine("Thank you for comming to my shop!");
+                        Continue();
                         return;
                     }
                 }
-                if (input == '2')
+                else
                 {
                     Console.WriteLine("Thank you for comming to my shop!");
+                    Continue();
                     return;
                 }
                 return;
